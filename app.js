@@ -1,3 +1,5 @@
+const readline = require('readline');
+
 let romanMap = {
   'M': 1000,
   'D': 500,
@@ -32,6 +34,10 @@ function main(){
         process.exit(0);
         break;
       default:
+        if(line > 3999 || line <= 0) {
+          console.log(`Only numbers from 1 to 3999`);
+          break;
+        }
         let ret = toRoman(line);
         console.log(ret);
         break;
