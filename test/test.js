@@ -3,7 +3,7 @@ const {toRoman, validateNumber, replaceBad} = require('../app');
 
 describe('App', function(){
   describe('toRoman', function() {
-    var tests = [
+    const tests = [
       {args: 1,    expected: 'I'},
       {args: 2,    expected: 'II'},
       {args: 3,    expected: 'III'},
@@ -29,14 +29,14 @@ describe('App', function(){
 
     tests.forEach(function(test) {
       it('from ' + test.args, function() {
-        var result = toRoman(test.args);
+        let result = toRoman(test.args);
         assert.equal(result, test.expected);
       });
     });
   });
 
   describe('validateNumber', function() {
-    var tests = [
+    const tests = [
       {args: ['CMXCIX', 'MCDXLIV', 'MMDCLXVI', 'MMMCXI','CCXXII', 'CCCXXXIII'],
        expected: true},
       {args: ['CCCCXXII', 'MMMMCCCXXII', 'CCCXXXXII', 'CCCXXIIII', 'CCCMXXII'],
@@ -46,7 +46,7 @@ describe('App', function(){
     tests.forEach(function(test) {
       for(let i = 0; i < test.args.length; i++){
         it('validate number', function() {
-          var result = validateNumber(test.args[i]);
+          let result = validateNumber(test.args[i]);
           assert.equal(result, test.expected);
         });
       }
@@ -54,7 +54,7 @@ describe('App', function(){
   });
 
   describe('replaceBad', function() {
-    var tests = [
+    let tests = [
       {args: 'IIII',    expected: 'IV'},
       {args: 'VIV',     expected: 'IX'},
       {args: 'XXXX',    expected: 'XL'},
@@ -65,7 +65,7 @@ describe('App', function(){
 
     tests.forEach(function(test) {
       it('from ' + test.args, function() {
-        var result = replaceBad(test.args);
+        let result = replaceBad(test.args);
         assert.equal(result, test.expected);
       });
     });
